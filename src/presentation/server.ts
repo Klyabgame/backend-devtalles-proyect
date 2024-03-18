@@ -31,7 +31,13 @@ export class Server {
     
 
     //* Middlewares
-    this.app.use(cors({credentials: true }));
+    this.app.use(
+      cors({
+        origin: ["https://devtalles-codequest-sorteos-beryl.vercel.app/", "*"],
+        allowedHeaders: ["Content-Type", "withCredentials"],
+        credentials: true,
+      })
+    );
     this.app.use( express.json() ); // raw
     this.app.use( express.urlencoded({ extended: true }) ); // x-www-form-urlencoded
     this.app.use(cookieParser())
