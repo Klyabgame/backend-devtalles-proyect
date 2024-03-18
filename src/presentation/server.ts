@@ -2,6 +2,7 @@ import express, { Router } from 'express';
 import path from 'path';
 import cookieParser from 'cookie-parser';
 import cors from 'cors';
+import { envs } from '../config';
 
 interface Options {
   port: number;
@@ -33,7 +34,7 @@ export class Server {
     this.app.use( express.json() ); // raw
     this.app.use( express.urlencoded({ extended: true }) ); // x-www-form-urlencoded
     this.app.use(cookieParser())
-    this.app.use(cors());
+    this.app.use(cors({ origin: `${envs.FRONTEND_URL}`, credentials: true }));
 
     //* Public Folder
     this.app.use( express.static( this.publicPath ) );
