@@ -116,7 +116,7 @@ export class usuarioController {
             }});//hojo con esta linea
             
         } catch (error) {
-            return res.status(500).json({ message: "No existe un token para validar un usuario" });
+            return res.status(500).json(null);
         }
     }
 

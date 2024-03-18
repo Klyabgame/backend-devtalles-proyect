@@ -1,6 +1,7 @@
 import express, { Router } from 'express';
 import path from 'path';
 import cookieParser from 'cookie-parser';
+import cors from 'cors';
 
 interface Options {
   port: number;
@@ -32,6 +33,7 @@ export class Server {
     this.app.use( express.json() ); // raw
     this.app.use( express.urlencoded({ extended: true }) ); // x-www-form-urlencoded
     this.app.use(cookieParser())
+    this.app.use(cors());
 
     //* Public Folder
     this.app.use( express.static( this.publicPath ) );
