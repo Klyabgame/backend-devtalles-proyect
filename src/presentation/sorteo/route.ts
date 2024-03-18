@@ -16,7 +16,7 @@ export class SorteoRoutes {
     router.get('/', controller.getSorteos );
     router.get('/', controller.getSorteosOne );
     router.post('/', controller.postSorteos );
-    router.post('/:id', controller.patchSorteos );
+    router.patch('/:id', controller.patchSorteos );
 
     router.delete('/:id', controller.deleteSorteos );
 
